@@ -42,7 +42,8 @@ def tracking_bus(bus_number, line_id):
 
                 sql = f'''
                 INSERT INTO bus_position(line_id, station_id, station_name, latitude, longitude, order_number, datetime)
-                VALUE({line_id}, {station_id}, {station_name}, {lat}, {lon}, {station_order}, {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}'''
+                VALUE("{line_id}", "{station_id}", "{station_name}", {lat}, {lon}, {station_order}, "{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+                '''
 
                 cursor.execute(sql)
                 db.close()

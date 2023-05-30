@@ -7,7 +7,7 @@ name = "pypi"
 pika = '*'
 requests = '*'
 pymysql = '*'
-
+cryptography = "*"
 
 [dev-packages]
 
