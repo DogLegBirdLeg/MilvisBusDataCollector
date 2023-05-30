@@ -46,6 +46,7 @@ def tracking_bus(bus_number, line_id):
                 '''
 
                 cursor.execute(sql)
+                db.commit()
                 db.close()
 
         time.sleep(60)
