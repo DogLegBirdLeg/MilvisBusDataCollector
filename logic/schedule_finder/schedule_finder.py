@@ -1,7 +1,7 @@
 from data import schedules_weekend as schedules
 import time
 from datetime import datetime
-from logic.shcedule_finder import producer
+from logic.schedule_finder import producer
 
 
 def run():
