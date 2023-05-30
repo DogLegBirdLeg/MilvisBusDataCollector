@@ -1,4 +1,4 @@
-from data import schedules_weekend as schedules
+from data import schedules as schedules
 import time
 from datetime import datetime
 from logic.schedule_finder import producer
