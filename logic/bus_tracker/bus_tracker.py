@@ -1,11 +1,16 @@
 import requests
 from datetime import datetime, timedelta
 from pymysql import connect
+from config import mysql
 import time
 
 url = 'http://apis.data.go.kr/1613000/BusLcInfoInqireService/getRouteAcctoBusLcList?serviceKey={key}&pageNo=1&numOfRows=100&_type=json&cityCode=38080&routeId={line_id}'
 key = 'JYTc85AfEjOQLSqYvU4HB9tRgdy%2BiL1gZjJ0yuo9phMmyvotaPHrrghXzLfCEOLcTTR8WxvVPolqaxmWKX89aA%3D%3D'
 station = ['MYB2', 'MYB3']
+
+
+def get_connection():
+    return connect(host=mysql.host, port=mysql.port, user=mysql.user, password=mysql.passwd, db=mysql.db, charset='utf8')
 
 
 def tracking_bus(bus_number, line_id):
@@ -31,6 +36,15 @@ def tracking_bus(bus_number, line_id):
                 station_name = item['nodenm']
                 station_order = item['nodeord']
                 line_id = item['routenm']
-                print(datetime.now(), lat, lon, station_id, station_name, station_order, line_id, bus_number)
+
+                db = get_connection()
+                cursor = db.cursor()
+
+                sql = f'''
+                INSERT INTO bus_position(line_id, station_id, station_name, latitude, longitude, order_number, datetime)
+                VALUE({line_id}, {station_id}, {station_name}, {lat}, {lon}, {station_order}, {datetime.now()}'''
+
+                cursor.execute(sql)
+                db.close()
 
         time.sleep(60)
