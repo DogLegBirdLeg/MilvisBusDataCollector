@@ -35,16 +35,9 @@ schedules = {
     '23:20': '부산대/MYB3'
 }
 
-schedules_weekend = {
+schedules_holiday = {
     '09:05': '칠성/MYB1',
     '09:10': '부산대/MYB1',
-    '10:30': '부산대/MYB1',  # test data
-    '10:31': '부산대/MYB1',  # test data
-    '10:32': '부산대/MYB1',  # test data
-    '10:33': '부산대/MYB1',  # test data
-    '10:34': '부산대/MYB1',  # test data
-    '10:35': '부산대/MYB1',  # test data
-
     '10:55': '용성/MYB3',
     '12:40': '삼랑진/MYB1',
     '13:45': '삼랑진/MYB3',
