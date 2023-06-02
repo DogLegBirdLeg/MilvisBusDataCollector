@@ -35,7 +35,6 @@ def tracking_bus(bus_number, line_id):
                 station_id = item['nodeid']
                 station_name = item['nodenm']
                 station_order = item['nodeord']
-                line_id = item['routenm']
 
                 db = get_connection()
                 cursor = db.cursor()
